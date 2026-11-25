@@ -98,7 +98,7 @@ def save_beat():
     save_json(BEATS_FILE, beats)
     return jsonify({"ok": True, "beat": beat})
 
-@app.route("/api/beats/<int":' + 'beat_id>', methods=["DELETE"])
+@app.route("/api/beats/<int:beat_id>", methods=["DELETE"])
 def delete_beat(beat_id):
     beats = load_json(BEATS_FILE, DEFAULT_BEATS)
     beats = [b for b in beats if b["id"] != beat_id]
@@ -138,3 +138,4 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     print(f"DJ NOTFALL-STUDIO laeuft auf Port {port}")
     app.run(host="0.0.0.0", port=port, debug=False)
+        
